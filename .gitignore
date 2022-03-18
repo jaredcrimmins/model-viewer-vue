@@ -1,0 +1,25 @@
+# Ignore everything in the root of the repo so that files can be explicitly
+# allowlisted.
+/*
+
+# Directories
+!.husky/
+!dev/
+!src/
+
+# Files
+!.babelrc
+!.commitlintrc.ts
+!.editorconfig
+!.eslintrc.json
+!.gitignore
+!.npmignore
+!.versionrc.json
+!CHANGELOG.md
+!package-lock.json
+!package.json
+!README.md
+!rollup.config.js
+!shims-vue.d.ts
+!tsconfig.json
+!vue.config.js

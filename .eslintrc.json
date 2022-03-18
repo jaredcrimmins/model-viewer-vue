@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/strongly-recommended",
+    "@vue/typescript"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
+  "rules": {
+    "vue/component-definition-name-casing": [
+      "error",
+      "kebab-case"
+    ],
+    "vue/name-property-casing": [
+      "error",
+      "kebab-case"
+    ]
+  }
+}

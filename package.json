@@ -1,0 +1,57 @@
+{
+  "name": "@jaredcrimmins/eodmproductions__model-viewer-vue",
+  "version": "0.0.0",
+  "description": "Three.js model viewer component for Vue",
+  "scripts": {
+    "build": "rollup -c",
+    "build:vue-cli": "vue-cli-service build --target lib src/index.ts && rm dist/demo.html",
+    "clean": "rm -fr dist/",
+    "dev": "vue-cli-service serve dev/client-entry.ts",
+    "help": "vue-cli-service help",
+    "lint": "vue-cli-service lint",
+    "prepare": "npm run clean && npm run build",
+    "release": "standard-version"
+  },
+  "main": "dist/model-viewer-vue.common.js",
+  "module": "dist/model-viewer-vue.esm.js",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/resize-observer-browser": "^0.1.7",
+    "@types/three": "^0.137.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.15.1",
+    "crypto-random-string": "^3.3.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "rollup": "^2.66.1",
+    "sass": "^1.35.1 <1.40.0",
+    "sass-loader": "^8.0.2",
+    "standard-version": "^9.3.2",
+    "three": "^0.138.0",
+    "tslib": "^2.3.1",
+    "typescript": "~4.1.5",
+    "vue": "^2.6.14",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eodmproductions/model-viewer-vue.git"
+  },
+  "peerDependencies": {
+    "three": "^0.138.0"
+  }
+}
