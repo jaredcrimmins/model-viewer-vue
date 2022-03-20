@@ -1,6 +1,6 @@
 {
   "name": "@jaredcrimmins/eodmproductions__model-viewer-vue",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Three.js model viewer component for Vue",
   "scripts": {
     "build": "rollup -c",
