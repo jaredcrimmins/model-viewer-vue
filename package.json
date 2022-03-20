@@ -9,7 +9,7 @@
     "dev": "vue-cli-service serve dev/client-entry.ts",
     "help": "vue-cli-service help",
     "lint": "vue-cli-service lint",
-    "prepare": "npm run clean && npm run build",
+    "prepare": "husky install && npm run clean && npm run build",
     "release": "standard-version"
   },
   "main": "dist/model-viewer-vue.common.js",
