@@ -2,6 +2,7 @@ import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import {GLTF, GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import {OptionalProp} from '../utils';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+import TextureUtils from '../three-components/texture-utils';
 import * as Three from 'three';
 import Vue, {CreateElement, PropOptions} from 'vue';
 
@@ -136,7 +137,10 @@ export default Vue.extend({
       });
 
       this.renderer = renderer;
+      renderer.toneMapping = Three.ACESFilmicToneMapping;
       this.setRendererSize(rootElWidth, rootElHeight);
+      renderer.outputEncoding = Three.sRGBEncoding;
+      renderer.physicallyCorrectLights = true;
 
       // Initialize camera
       const cameraAspect = rootElWidth / rootElHeight;
@@ -152,25 +156,9 @@ export default Vue.extend({
 
       // Initialize scene
       const scene = new Three.Scene();
-      const light = new Three.AmbientLight(0xffffff, 1); // soft white light
-      const hemiLight = new Three.HemisphereLight(0xffeeb1, 0x080820, 4);
-      const dirLight = new Three.DirectionalLight(0xffffff);
 
       this.scene = scene;
-      light.position.set(0, 15, 1.25);
-      hemiLight.position.set(0, 20, 0);
-      dirLight.position.set(3, 10, 10);
-      dirLight.castShadow = true;
-      dirLight.shadow.camera.top = 2;
-      dirLight.shadow.camera.bottom = -2;
-      dirLight.shadow.camera.left = -2;
-      dirLight.shadow.camera.right = 2;
-      dirLight.shadow.camera.near = 0.1;
-      dirLight.shadow.camera.far = 40;
       scene.background = this.background;
-      scene.add(dirLight);
-      scene.add(hemiLight);
-      scene.add(light);
 
       // Initialize listeners
       const resizeObserser = new ResizeObserver(this.onResize);
@@ -180,7 +168,7 @@ export default Vue.extend({
 
       this.animate();
 
-      this.attemptToAddModelFromPropsToScene();
+      this.applyEnvironmentMap().then(this.attemptToAddModelFromPropsToScene);
     },
 
     deinit() {
@@ -272,6 +260,13 @@ export default Vue.extend({
       (<OrbitControls>this.controls).target.set(modelCenter.x, modelCenter.y, 0);
 
       this.setCameraPosition(modelCenter.x, modelCenter.y, this.idealCameraDistance());
+    },
+
+    async applyEnvironmentMap() {
+      const textureUtils = new TextureUtils(this.renderer!);
+      const environmentMap = await textureUtils.generateEnvironmentMap('neutral');
+
+      this.scene!.environment = environmentMap;
     },
 
     idealCameraDistance() {
