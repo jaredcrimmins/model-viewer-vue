@@ -14,7 +14,7 @@ type CanvasElRef = HTMLCanvasElement;
 
 export type BackgroundProp = OptionalProp<Three.Color | Three.Texture>;
 
-export type ColorsProp = ColorData;
+export type ColorsProp = OptionalProp<ColorData>;
 
 export type DataProp = OptionalProp<ArrayBuffer>;
 
@@ -44,7 +44,6 @@ export default Vue.extend({
       }
     } as PropOptions<BackgroundProp>,
     colors: {
-      required: true,
       default: () => ({}),
       validator: value => {
         for (const meshName in value) {
@@ -82,7 +81,7 @@ export default Vue.extend({
 
   watch: {
     colors(value: ColorsProp) {
-      this.setColors(value);
+      if (value) this.setColors(value);
     },
 
     data() {
@@ -255,7 +254,7 @@ export default Vue.extend({
       this.model = model;
       (<Three.Scene>this.scene).add(model);
 
-      this.setColors(this.colors);
+      if (this.colors) this.setColors(this.colors);
 
       (<OrbitControls>this.controls).target.set(modelCenter.x, modelCenter.y, 0);
 
