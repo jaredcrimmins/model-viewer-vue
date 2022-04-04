@@ -4,7 +4,7 @@ const basePathname = 'dist/model-viewer-vue';
 const input = 'src/index.ts';
 const plugins = [typescript()];
 const external = [
-  /three/,
+  /^three\/?/,
   'vue'
 ];
 
