@@ -20,6 +20,8 @@ export type DataProp = OptionalProp<ArrayBuffer>;
 
 export type DisableRotateProp = boolean;
 
+export type DisableZoomProp = boolean;
+
 export type SrcProp = OptionalProp<string>;
 
 export type Props = {
@@ -27,6 +29,7 @@ export type Props = {
   colors?: ColorsProp;
   data?: DataProp;
   disableRotate?: DisableRotateProp;
+  disableZoom?: DisableZoomProp;
   src?: SrcProp;
 }
 
@@ -65,6 +68,7 @@ export default Vue.extend({
       default: null
     } as PropOptions<DataProp>,
     disableRotate: Boolean as PropOptions<DisableRotateProp>,
+    disableZoom: Boolean as PropOptions<DisableZoomProp>,
     src: {
       type: String,
       default: null
@@ -94,6 +98,10 @@ export default Vue.extend({
 
     disableRotate(value: boolean) {
       if (this.controls) this.controls.enableRotate = !value;
+    },
+
+    disableZoom(value: boolean) {
+      if (this.controls) this.controls.enableZoom = !value;
     },
 
     src() {
@@ -161,6 +169,7 @@ export default Vue.extend({
 
       this.controls = controls;
       this.controls.enableRotate = !this.disableRotate;
+      this.controls.enableZoom = !this.disableZoom;
 
       // Initialize scene
       const scene = new Three.Scene();
