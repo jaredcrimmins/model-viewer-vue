@@ -10,6 +10,7 @@
             'Hanger': this.hangerColor
           }"
           :data="data"
+          :enable-rotate="enableRotate"
           :src="src"
         />
       </div>
@@ -62,6 +63,7 @@
         background: new Three.Color('#f1f1f1'),
         baseColor: '#000000',
         data: <ArrayBuffer | null>null,
+        enableRotate: true,
         hangerColor: '#000000',
         src: '/models/EoDMHeadphoneStand.glb'
       };

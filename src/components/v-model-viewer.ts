@@ -18,12 +18,15 @@ export type ColorsProp = OptionalProp<ColorData>;
 
 export type DataProp = OptionalProp<ArrayBuffer>;
 
+export type DisableRotateProp = boolean;
+
 export type SrcProp = OptionalProp<string>;
 
 export type Props = {
   background?: BackgroundProp;
   colors?: ColorsProp;
   data?: DataProp;
+  disableRotate?: DisableRotateProp;
   src?: SrcProp;
 }
 
@@ -61,6 +64,7 @@ export default Vue.extend({
       type: ArrayBuffer,
       default: null
     } as PropOptions<DataProp>,
+    disableRotate: Boolean as PropOptions<DisableRotateProp>,
     src: {
       type: String,
       default: null
@@ -86,6 +90,10 @@ export default Vue.extend({
 
     data() {
       this.attemptToAddModelFromPropsToScene();
+    },
+
+    disableRotate(value: boolean) {
+      if (this.controls) this.controls.enableRotate = !value;
     },
 
     src() {
@@ -152,6 +160,7 @@ export default Vue.extend({
       const controls = new OrbitControls(camera, renderer.domElement);
 
       this.controls = controls;
+      this.controls.enableRotate = !this.disableRotate;
 
       // Initialize scene
       const scene = new Three.Scene();
