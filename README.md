@@ -46,9 +46,11 @@ export default Vue.extend({
 
 ### Props
 
-| Prop         | Type                                              | Optional | Description                                                 |
-| ------------ | ------------------------------------------------- | -------- | ----------------------------------------------------------- |
-| `background` | `Three.Color \| Three.Texture`                    | `true`   | Background of the three.js scene                            |
-| `colors`     | `{[meshName: string]: Three.ColorRepresentation}` | `true`   | Object map of colors to set named meshes                    |
-| `data`       | `ArrayBuffer`                                     | `true`   | `ArrayBuffer` of the 3D model. glTF/GLB files are supported |
-| `src`        | `String`                                          | `true`   | URL to the 3D model. glTF/GLB files are supported           |
+| Prop            | Type                                              | Optional | Description                                                 |
+| --------------- | ------------------------------------------------- | -------- | ----------------------------------------------------------- |
+| `background`    | `Three.Color \| Three.Texture`                    | `true`   | Background of the three.js scene                            |
+| `colors`        | `{[meshName: string]: Three.ColorRepresentation}` | `true`   | Object map of colors to set named meshes                    |
+| `data`          | `ArrayBuffer`                                     | `true`   | `ArrayBuffer` of the 3D model. glTF/GLB files are supported |
+| `disableRotate` | `Boolean`                                         | `false`  | Disables user rotate                                        |
+| `disableZoom`   | `Boolean`                                         | `false`  | Disables user zoom                                          |
+| `src`           | `String`                                          | `true`   | URL to the 3D model. glTF/GLB files are supported           |
