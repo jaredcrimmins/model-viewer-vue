@@ -5,6 +5,7 @@
         <v-model-viewer
           ref="modelViewer"
           :background="background"
+          :cameraOrbit="cameraOrbit"
           :colors="{
             'Base': this.baseColor,
             'Hanger': this.hangerColor
@@ -45,6 +46,16 @@
           >
           <label for="base">Base</label>
         </div>
+
+        <div>
+          <label for="camera-orbit">Camera orbit</label> 
+          <input
+            id="camera-orbit"
+            type="text"
+            v-model="cameraOrbit_"
+          >
+          <button @click="onCameraOrbitButtonClick">Set camera orbit</button>
+        </div>
       </div>
     </div>      
   </div>
@@ -63,6 +74,8 @@
       return {
         background: new Three.Color('#f1f1f1'),
         baseColor: '#000000',
+        cameraOrbit: <string | null>'45deg 90deg',
+        cameraOrbit_: <string | null>null,
         data: <ArrayBuffer | null>null,
         disableRotate: false,
         disableZoom: false,
@@ -72,6 +85,10 @@
     },
 
     methods: {
+      onCameraOrbitButtonClick() {
+        this.cameraOrbit = this.cameraOrbit_;
+      },
+
       onChooseFileButtonClick() {
         (<FileInputElRef>this.$refs.fileInputEl).click();
       },
