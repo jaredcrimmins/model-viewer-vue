@@ -49,6 +49,13 @@ export default Vue.extend({
         else return true;
       }
     } as PropOptions<BackgroundProp>,
+    cameraOrbit: {
+      type: String,
+      default: '0deg 45deg',
+      validator(value) {
+        return /^(((\d{1,3}deg)|(\d+(.\d+)?rad)) ((\d{1,3}deg)|(\d+(.\d+)?rad)))$/.test(value);
+      }
+    },
     colors: {
       default: () => ({}),
       validator: value => {
@@ -88,6 +95,12 @@ export default Vue.extend({
   },
 
   watch: {
+    cameraOrbit(value) {
+      const {theta, phi} = this.parseCameraOrbitString(value);
+
+      this.controls?.setOrbit(theta, phi);
+    },
+
     colors(value: ColorsProp) {
       if (value) this.setColors(value);
     },
@@ -182,6 +195,12 @@ export default Vue.extend({
 
       resizeObserser.observe(this.$el);
       window.addEventListener('resize', this.onWindowResize);
+
+      if (this.cameraOrbit) {
+        const {theta, phi} = this.parseCameraOrbitString(this.cameraOrbit);
+
+        this.controls?.setOrbit(theta, phi);
+      }
 
       this.animate();
 
@@ -335,6 +354,23 @@ export default Vue.extend({
       return new Promise((resolve, reject) => {
         loader.load(url, resolve, undefined, reject);
       });
+    },
+
+    parseCameraOrbitString(cameraOrbit: string) {
+      const cameraOrbitStringRegEx = /^(?:(?:(?:(-?\d{1,3})deg)|(?:(\d+(?:.\d+)?)rad)) (?:(?:(-?\d{1,3})deg)|(?:(\d+(?:.\d+)?)rad)))$/;
+      const results = cameraOrbit.match(cameraOrbitStringRegEx);
+
+      if (!results?.length) throw new Error('invalid camera orbit string');
+
+      const thetaDeg = parseInt(results[1]);
+      const thetaRad = parseInt(results[2]);
+      const phiDeg = parseInt(results[3]);
+      const phiRad = parseInt(results[4]);
+
+      return {
+        theta: !isNaN(thetaRad) ? thetaRad : Three.MathUtils.degToRad(thetaDeg),
+        phi: !isNaN(phiRad) ? phiRad : Three.MathUtils.degToRad(phiDeg),
+      };
     }
   }
 });
