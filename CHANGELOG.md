@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/eodmproductions/model-viewer-vue/compare/v0.1.3...v0.2.0) (2022-08-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename package to @eodmproductions/model-viewer-vue
+
+### Features
+
+* create `cameraOrbit` prop ([0949f47](https://github.com/eodmproductions/model-viewer-vue/commit/0949f47794645262e8db7f3f5bf44f554b77fad8))
+
+
+### Code Refactoring
+
+* create and implement `OrbitControls` class ([b3d51c3](https://github.com/eodmproductions/model-viewer-vue/commit/b3d51c33767b2b5a4c947358078c57bb7ed3da9c))
+
+
+### Build
+
+* rename package to @eodmproductions/model-viewer-vue ([a595730](https://github.com/eodmproductions/model-viewer-vue/commit/a59573046080099517cf87b768b1df01044263fc))
+
 ### [0.1.3](https://github.com/eodmproductions/model-viewer-vue/compare/v0.1.2...v0.1.3) (2022-05-26)
 
 
