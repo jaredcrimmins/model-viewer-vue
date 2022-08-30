@@ -1,7 +1,7 @@
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import {GLTF, GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import {OptionalProp} from '../utils';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+import {OrbitControls} from '../three-components/orbit-controls';
 import TextureUtils from '../three-components/texture-utils';
 import * as Three from 'three';
 import Vue, {CreateElement, PropOptions} from 'vue';
