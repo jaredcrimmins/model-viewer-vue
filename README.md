@@ -3,12 +3,12 @@
 Three.js model viewer component for Vue
 
 [GitHub](https://github.com/eodmproductions/model-viewer-vue) |
-[NPM](https://www.npmjs.com/package/@jaredcrimmins/eodmproductions__model-viewer-vue)
+[Google Cloud Artifact Registry](https://console.cloud.google.com/artifacts/npm/eodm-productions-website/us/eodmproductions-npm/@eodmproductions%2Fmodel-viewer-vue)
 
 ## Install
 
 ```shell
-npm install @jaredcrimmins/eodmproductions__model-viewer-vue
+npm install @eodmproductions/model-viewer-vue
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install @jaredcrimmins/eodmproductions__model-viewer-vue
 
 ```ts
 // src/main.ts
-import {VModelViewer} from '@jaredcrimmins/eodmproductions__model-viewer-vue';
+import {VModelViewer} from '@eodmproductions/model-viewer-vue';
 import Vue from 'vue';
 
 // Register component
@@ -28,7 +28,7 @@ Vue.component('v-model-viewer', VModelViewer);
 
 ```ts
 import Vue, {CreateElement} from 'vue';
-import * as modelViewer from '@jaredcrimmins/eodmproductions__model-viewer-vue';
+import * as modelViewer from '@eodmproductions/model-viewer-vue';
 
 export default Vue.extend({
   render(c: CreateElement) {
