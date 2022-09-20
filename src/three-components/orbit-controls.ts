@@ -409,7 +409,6 @@ export class OrbitControls extends EventDispatcher {
 	}
 
 	dollyOut(dollyScale: number) {
-    console.log('dollyOut');
     if (this.camera instanceof PerspectiveCamera) {
       scale /= dollyScale;
     } else if (this.camera instanceof OrthographicCamera) {
