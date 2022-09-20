@@ -95,6 +95,10 @@ export default Vue.extend({
   },
 
   watch: {
+    background(value) {
+      if (this.scene) this.scene.background = value;
+    },
+
     cameraOrbit(value) {
       const {theta, phi} = this.parseCameraOrbitString(value);
 
