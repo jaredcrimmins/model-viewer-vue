@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/eodmproductions/model-viewer-vue/compare/v0.2.0...v0.2.1) (2022-09-20)
+
+
+### Features
+
+* add `background` prop watcher ([fbb5d21](https://github.com/eodmproductions/model-viewer-vue/commit/fbb5d21e6d38557a5a75073a55d233094fdcb801))
+
+
+### Bug Fixes
+
+* remove `console.log` from `OrbitControls.dollyOut` ([d3f9d95](https://github.com/eodmproductions/model-viewer-vue/commit/d3f9d95119461cedc45dde93a23ec75d375110fa))
+
 ## [0.2.0](https://github.com/eodmproductions/model-viewer-vue/compare/v0.1.3...v0.2.0) (2022-08-30)
 
 

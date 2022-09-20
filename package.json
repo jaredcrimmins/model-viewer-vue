@@ -1,6 +1,6 @@
 {
   "name": "@eodmproductions/model-viewer-vue",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Three.js model viewer component for Vue",
   "scripts": {
     "artifactregistry-login": "npx google-artifactregistry-auth",
