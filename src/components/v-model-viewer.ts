@@ -331,14 +331,14 @@ export default Vue.extend({
       return loader;
     },
 
-    attemptToAddModelFromPropsToScene() {
-      return this.attemptToLoadGltfFromProps().then(gltf => {
-        if (gltf) {
-          this.addModelToScene(gltf.scene);
+    async attemptToAddModelFromPropsToScene() {
+      const gltf = await this.attemptToLoadGltfFromProps();
 
-          return true;
-        } else return false;
-      });
+      if (gltf) {
+        this.addModelToScene(gltf.scene);
+
+        return true;
+      } else return false;
     },
 
     attemptToLoadGltfFromProps() {
