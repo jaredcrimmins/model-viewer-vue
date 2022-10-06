@@ -57,13 +57,16 @@ export default Vue.extend({
       }
     },
     colors: {
+      type: Object,
       default: () => ({}),
-      validator: value => {
+      validator: (value: object) => {
+        const _value = <{[key: string]: Three.Color | 'string' | 'number'}>value;
+
         for (const meshName in value) {
           if (
-            !(value[meshName] instanceof Three.Color) &&
-            typeof value[meshName] !== 'string' &&
-            typeof value[meshName] !== 'number'
+            !(_value[meshName] instanceof Three.Color) &&
+            typeof _value[meshName] !== 'string' &&
+            typeof _value[meshName] !== 'number'
           ) return false;
         }
 
