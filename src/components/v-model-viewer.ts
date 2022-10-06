@@ -52,7 +52,7 @@ export default Vue.extend({
     cameraOrbit: {
       type: String,
       default: '0deg 45deg',
-      validator(value) {
+      validator(value: string) {
         return /^(((\d{1,3}deg)|(\d+(.\d+)?rad)) ((\d{1,3}deg)|(\d+(.\d+)?rad)))$/.test(value);
       }
     },
