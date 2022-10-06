@@ -230,7 +230,7 @@ export default Vue.extend({
       for (const meshName in colors) {
         const model = (<Three.Object3D>this.model);
         const targetMesh = <Three.Mesh<Three.BufferGeometry, Three.MeshStandardMaterial> | undefined>model.getObjectByName(meshName);
-        const color = new Three.Color(colors[meshName]);
+        const color = new Three.Color(colors[meshName]).convertSRGBToLinear();
 
         if (targetMesh) targetMesh.material.color.set(color);
       }
