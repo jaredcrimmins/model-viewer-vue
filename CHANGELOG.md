@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/eodmproductions/model-viewer-vue/compare/v0.2.1...v0.2.2) (2022-10-06)
+
+
+### Bug Fixes
+
+* add `type` validator to `colors` prop ([2f1020c](https://github.com/eodmproductions/model-viewer-vue/commit/2f1020c9cbe12a58b51eea19d7e0a87f12ee153d))
+* annotate `cameraOrbit` custom validator `value` parameter type ([9f4958b](https://github.com/eodmproductions/model-viewer-vue/commit/9f4958bff1825485951153c451ce4befb1205698))
+* convert `attemptToAddModelFromPropsToScene` to use `await` ([e331a61](https://github.com/eodmproductions/model-viewer-vue/commit/e331a613ab12614dbb3625a4f68e49864cb28f28))
+
+
+### Code Refactoring
+
+* invoke `convertSRGBToLinear` on colors in `setColors` ([96205f0](https://github.com/eodmproductions/model-viewer-vue/commit/96205f0406ce322cb85c01bb3a847510ae1f8cf9))
+
 ### [0.2.1](https://github.com/eodmproductions/model-viewer-vue/compare/v0.2.0...v0.2.1) (2022-09-20)
 
 
